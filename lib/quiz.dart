@@ -7,7 +7,8 @@ class QuizMain extends StatelessWidget {
       body: SafeArea(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
-          children: [
+          crossAxisAlignment: CrossAxisAlignment.stretch,
+          children: <Widget>[
             Expanded(
               flex: 5,
               child: Center(
@@ -27,38 +28,39 @@ class QuizMain extends StatelessWidget {
               ),
             ),
             Expanded(
-              child: Column(
-                children: [
-                  TextButton(
-                    child: Text(
-                      'True',
-                      style: TextStyle(
-                        color: Colors.white,
-                      ),
-                    ),
-                    onPressed: () {},
-                    style: TextButton.styleFrom(
-                      backgroundColor: Colors.green,
-                      fixedSize: Size(double.maxFinite, 50),
+              child: Padding(
+                padding: const EdgeInsets.all(15.0),
+                child: TextButton(
+                  child: Text(
+                    'True',
+                    style: TextStyle(
+                      color: Colors.white,
+                      fontSize: 18,
                     ),
                   ),
-                  SizedBox(
-                    height: 10,
+                  onPressed: () {},
+                  style: TextButton.styleFrom(
+                    backgroundColor: Colors.green,
                   ),
-                  TextButton(
-                    child: Text(
-                      'False',
-                      style: TextStyle(
-                        color: Colors.white,
-                      ),
-                    ),
-                    onPressed: () {},
-                    style: TextButton.styleFrom(
-                      backgroundColor: Colors.red,
-                      fixedSize: Size(double.maxFinite, 50),
+                ),
+              ),
+            ),
+            Expanded(
+              child: Padding(
+                padding: const EdgeInsets.all(15.0),
+                child: TextButton(
+                  child: Text(
+                    'False',
+                    style: TextStyle(
+                      color: Colors.white,
+                      fontSize: 18,
                     ),
                   ),
-                ],
+                  onPressed: () {},
+                  style: TextButton.styleFrom(
+                    backgroundColor: Colors.red,
+                  ),
+                ),
               ),
             ),
           ],
