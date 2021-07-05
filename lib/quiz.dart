@@ -16,6 +16,14 @@ class _QuizMainState extends State<QuizMain> {
     "Only female mosquitos bite." //true
   ];
 
+  List<bool> answer = [
+    true,
+    true,
+    true,
+    false,
+    true,
+  ];
+
   int questionNumber = 0;
 
   @override
@@ -57,13 +65,23 @@ class _QuizMainState extends State<QuizMain> {
                 onPressed: () {
                   setState(
                     () {
+                      bool correctAnswer = answer[questionNumber];
+                      if (correctAnswer == true) {
+                        scoreKeeper.add(
+                          Icon(
+                            Icons.check,
+                            color: Colors.green,
+                          ),
+                        );
+                      } else if (correctAnswer == false) {
+                        scoreKeeper.add(
+                          Icon(
+                            Icons.close,
+                            color: Colors.red,
+                          ),
+                        );
+                      }
                       questionNumber++;
-                      scoreKeeper.add(
-                        Icon(
-                          Icons.check,
-                          color: Colors.green,
-                        ),
-                      );
                     },
                   );
                 },
@@ -85,14 +103,27 @@ class _QuizMainState extends State<QuizMain> {
                   ),
                 ),
                 onPressed: () {
-                  setState(() {
-                    scoreKeeper.add(
-                      Icon(
-                        Icons.close,
-                        color: Colors.red,
-                      ),
-                    );
-                  });
+                  setState(
+                    () {
+                      bool correctAnswer = answer[questionNumber];
+                      if (correctAnswer == false) {
+                        scoreKeeper.add(
+                          Icon(
+                            Icons.check,
+                            color: Colors.green,
+                          ),
+                        );
+                      } else if (correctAnswer == true) {
+                        scoreKeeper.add(
+                          Icon(
+                            Icons.close,
+                            color: Colors.red,
+                          ),
+                        );
+                      }
+                      questionNumber++;
+                    },
+                  );
                 },
                 style: TextButton.styleFrom(
                   backgroundColor: Colors.red,
