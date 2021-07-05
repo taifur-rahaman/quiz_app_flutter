@@ -8,6 +8,16 @@ class QuizMain extends StatefulWidget {
 class _QuizMainState extends State<QuizMain> {
   List<Widget> scoreKeeper = [];
 
+  List<String> question = [
+    "A tsunami wave can travel the speed of a jet.", //true
+    "The snow on Venus is metal.", //true
+    "While sleeping, you cannot smell anything.", //true
+    "The shortest war in history lasted for only 52 minutes.", //false
+    "Only female mosquitos bite." //true
+  ];
+
+  int questionNumber = 0;
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -23,7 +33,7 @@ class _QuizMainState extends State<QuizMain> {
                   horizontal: 10,
                 ),
                 child: Text(
-                  'This is where the question text will go',
+                  question[questionNumber],
                   style: TextStyle(
                     color: Colors.white,
                     fontSize: 25,
@@ -47,6 +57,7 @@ class _QuizMainState extends State<QuizMain> {
                 onPressed: () {
                   setState(
                     () {
+                      questionNumber++;
                       scoreKeeper.add(
                         Icon(
                           Icons.check,
